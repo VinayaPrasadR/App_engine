@@ -7,7 +7,6 @@ import requests
 import json
 import google.oauth2.credentials
 import google_auth_oauthlib.flow
-import googleapiclient.discovery
 
 
 
@@ -38,6 +37,8 @@ SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
 @app.route('/test')
 def test_api_request():
+
+  print("Inside test route")
   if 'credentials' not in flask.session:
     return flask.redirect('authorize')
 
@@ -52,7 +53,8 @@ def test_api_request():
 
 @app.route('/authorize')
 def authorize():
- 
+  
+  print("Inside authorize route")
   flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
       client_secrets_file='/tmp/secret_file.json', scopes=SCOPES)
 
@@ -72,6 +74,7 @@ def authorize():
 @app.route('/callback')
 def oauth2callback():
   
+  print("Inside callback route")
   if request.args.get('error'):
     return 'Thankyou'
 
