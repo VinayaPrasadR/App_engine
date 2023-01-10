@@ -23,8 +23,7 @@ credentials={
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_secret": "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",
         "redirect_uris": [
-            "http://localhost:8000/callback",
-            "http://127.0.0.1:8000/callback"
+          "https://indus-373613.el.r.appspot.com/callback"
         ]
     }
 }
