@@ -1,2 +1,11 @@
 runtime: python37
-entrypoint: gunicorn -b :$PORT auth:app
+
+handlers:
+- url: /authorize
+  script: main.py
+
+- url: /callback
+  script: main.py
+
+- url: /test
+  script: main.py
